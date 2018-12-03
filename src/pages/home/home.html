@@ -1,0 +1,80 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>
+      Carl's Junior
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+-->
+
+<ion-content padding>
+  <h1>Encuesta para clientes</h1>
+
+  <div>
+    <form [formGroup]="formValidator" #addorder="ngForm">
+    <ion-row>
+      <ion-col>
+
+        <ion-item>
+          <ion-label floating> Nombre Completo</ion-label>
+          <ion-input [(ngModel)]="client.Name" formControlName="NameForm">
+          </ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngFor="let validation of validation_messages.NameForm" >
+            <p *ngIf="formValidator.controls.NameForm.hasError(validation.type) && formValidator.controls.NameForm.dirty">
+              &emsp; {{ validation.message }}
+            </p>
+          </ng-container>
+        </div>
+
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label>Sexo</ion-label>
+              <ion-select [(ngModel)]="client.Sex" formControlName="genderForm">
+                <ion-option *ngFor="let gen of genders" [value]="gen.value">{{ gen.name }}</ion-option>
+              </ion-select>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let validation of validation_messages.genderForm" >
+                <p *ngIf="formValidator.controls.genderForm.hasError(validation.type) && formValidator.controls.genderForm.dirty">
+                  &emsp; {{ validation.message }}
+                </p>
+              </ng-container>
+            </div>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label floating>  Edad</ion-label>
+              <ion-input type="number" [(ngModel)] ="client.Age" formControlName="AgeForm"></ion-input>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let validation of validation_messages.AgeForm" >
+                <p *ngIf="formValidator.controls.AgeForm.hasError(validation.type) && formValidator.controls.AgeForm.dirty">
+                  &emsp; {{ validation.message }}
+                </p>
+              </ng-container>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-item>
+          <ion-label>Producto favorito</ion-label>
+          <ion-select>
+            <ion-option *ngFor="let hero of products">{{hero}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-row>
+
+        </ion-row>
+
+
+      </ion-col>
+    </ion-row>
+      <button ion-button full (click)="btnClickAction()" [disabled]="!addorder.form.valid" float-right>Listo</button>
+    </form>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,11 @@
+page-home {
+  ion-label, .select-text {
+    margin-left: 10px;
+  }
+  p{
+    color: red;
+  }
+  .invalid {
+    border: 1px solid #ea6153;
+  }
+}
