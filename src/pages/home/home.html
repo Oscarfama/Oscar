@@ -57,16 +57,66 @@
               </ng-container>
             </div>
           </ion-col>
-
         </ion-row>
+
         <ion-item>
-          <ion-label>Producto favorito</ion-label>
+          <ion-label>Tu Sucursal</ion-label>
           <ion-select>
-            <ion-option *ngFor="let hero of products">{{hero}}</ion-option>
+            <ion-option *ngFor="let suc of sucursales">{{suc}}</ion-option>
           </ion-select>
         </ion-item>
-        <ion-row>
 
+
+
+        <ion-item>
+        <ion-label>Producto favorito</ion-label>
+        <ion-select>
+          <ion-option *ngFor="let hero of products">{{hero}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+        <ion-row radio-group>
+          <ion-list-header>
+            Como calificas la atencion al cliente?
+          </ion-list-header>
+          <ion-col>
+            <ion-item>
+              Pesimo
+            </ion-item>
+          </ion-col>
+          <ion-col *ngFor="let calif of calificacion; let i = index">
+            <ion-item>
+              <ion-label>{{calif}}</ion-label>
+              <ion-radio value="{{i}}"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              Excelente
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row radio-group>
+          <ion-list-header>
+            Como calificas la limpieza de la sucursal?
+          </ion-list-header>
+          <ion-col>
+            <ion-item>
+              Pesimo
+            </ion-item>
+          </ion-col>
+          <ion-col *ngFor="let calif of calificacion; let i = index">
+            <ion-item>
+              <ion-label>{{calif}}</ion-label>
+              <ion-radio value="{{i}}"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              Excelente
+            </ion-item>
+          </ion-col>
         </ion-row>
 
 

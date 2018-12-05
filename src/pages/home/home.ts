@@ -29,6 +29,10 @@ export class HomePage {
   products: string[]=[
     'Blizzard','Cono','Pastel','Bebidas','Otros'
   ];
+  sucursales: string[]=[
+    'Altaria','Aguascalientes Norte','Aguascalientes Sur','DQ Adana'
+  ];
+  calificacion: number[]=[1,2,3,4,5,6,7,8,9,10];
   validation_messages = ValidationResponse.validation_Response;
   constructor(public navCtrl: NavController,private formBuilder: FormBuilder) {
     this.formValidator = this.formBuilder.group({
