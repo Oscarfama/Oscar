@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import {Client} from "../../Models/Client";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidationResponse} from "../../Models/ValidationResponse";
+import {AngularFireDatabase, AngularFireObject} from "@angular/fire/database";
+import * as firebase from "firebase";
 
 @Component({
   selector: 'page-home',
@@ -12,20 +14,7 @@ export class HomePage {
 
   client : Client;
   formValidator: FormGroup;
-  genders = [
-    {
-      value: 'M',
-      name: 'Mujer'
-    },
-    {
-      value: 'H',
-      name: 'Hombre'
-    },
-    {
-      value: 'N',
-      name: 'Otros'
-    }
-  ];
+  genders: string[] = ['Mujer','Hombre','Otro'];
   products: string[]=[
     'Blizzard','Cono','Pastel','Bebidas','Otros'
   ];
@@ -34,16 +23,18 @@ export class HomePage {
   ];
   calificacion: number[]=[1,2,3,4,5,6,7,8,9,10];
   validation_messages = ValidationResponse.validation_Response;
-  constructor(public navCtrl: NavController,private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController,private formBuilder: FormBuilder, public afd: AngularFireDatabase) {
+    this.client = new Client();
+
     this.formValidator = this.formBuilder.group({
       NameForm:['', Validators.required,],
       genderForm: ['', Validators.required],
       AgeForm: ['', Validators.required],
     });
-    this.client = new Client();
   }
-  btnClickAction(){
-
+  btnClickAction(client: Client): void {
+    console.log(this.client);
+    firebase.database().ref('/Clientes').push(this.client);
   }
 
 }

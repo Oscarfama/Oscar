@@ -33,7 +33,7 @@
             <ion-item>
               <ion-label>Sexo</ion-label>
               <ion-select [(ngModel)]="client.Sex" formControlName="genderForm">
-                <ion-option *ngFor="let gen of genders" [value]="gen.value">{{ gen.name }}</ion-option>
+                <ion-option *ngFor="let gen of genders">{{gen}}</ion-option>
               </ion-select>
             </ion-item>
             <div>
