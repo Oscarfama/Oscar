@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import {Client} from "../../Models/Client";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ValidationResponse} from "../../Models/ValidationResponse";
-import {AngularFireDatabase, AngularFireObject} from "@angular/fire/database";
+import {AngularFireDatabase} from "@angular/fire/database";
 import * as firebase from "firebase";
 
 @Component({

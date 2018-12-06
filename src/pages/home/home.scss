@@ -2,6 +2,13 @@ page-home {
   ion-label, .select-text {
     margin-left: 10px;
   }
+  .hero-image {
+    height: 500px;
+    background: #cccccc url("../../assets/imgs/DQ.png") no-repeat center;
+    background-size: cover;
+    position: relative;
+  }
+
   p{
     color: red;
   }

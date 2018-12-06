@@ -7,9 +7,9 @@
 </ion-header>
 -->
 
-<ion-content padding>
+<ion-content class="card-background-page">
   <h1>Encuesta para clientes</h1>
-
+  <div class="hero-image"></div>
   <div>
     <form [formGroup]="formValidator" #addorder="ngForm">
     <ion-row>
@@ -125,6 +125,4 @@
       <button ion-button full (click)="btnClickAction()" [disabled]="!addorder.form.valid" float-right>Listo</button>
     </form>
   </div>
-
-
 </ion-content>
